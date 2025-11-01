@@ -1,148 +1,48 @@
+/*
+ * Copyright (c) 2020 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/pointing.h>
-
-&studio_unlock
-
-&sensors {
-    triggers-per-rotation = <30>;
-};
-
 
 / {
-    behaviors {
-        scroll_mvt: scroll_mvt {
-            compatible = "zmk,behavior-sensor-rotate-var";
-            label = "SCROLL_MVT";
-            #sensor-binding-cells = <2>;
-            bindings = <&msc>, <&msc>;
-        };
-
-        td_pars: parenthesis {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp LPAR>, <&kp RPAR>;
-        };
-
-        td1_brk: brackets {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp LBKT>, <&kp RBKT>;
-        };
-
-        td2_brc: braces {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp LBRC>, <&kp RBRC>;
-        };
-
-        td_comma: commas {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_COMMA";
-            #binding-cells = <0>;
-            bindings = <&kp COMMA>, <&kp SEMI>;
-
-            tapping-term-ms = <200>;
-        };
-
-        td_dot: period {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_DOT";
-            #binding-cells = <0>;
-            bindings = <&kp DOT>, <&kp COLON>;
-        };
-
-
-        // select which bt profile, hold to disconnect if inactive
-
-        bt0_cmd: bt0_cmd {
-            compatible = "zmk,behavior-tap-dance";
-            label = "BT0_CMD";
-            #binding-cells = <0>;
-            bindings = <&bt BT_SEL 0>, <&bt BT_DISC 0>;
-        };
-        
-        bt1_cmd: bt1_cmd {
-            compatible = "zmk,behavior-tap-dance";
-            label = "BT1_CMD";
-            #binding-cells = <0>;
-            bindings = <&bt BT_SEL 1>, <&bt BT_DISC 1>;
-        };
-
-        bt2_cmd: bt2_cmd {
-            compatible = "zmk,behavior-tap-dance";
-            label = "BT2_CMD";
-            #binding-cells = <0>;
-            bindings = <&bt BT_SEL 2>, <&bt BT_DISC 2>;
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
-        default {
+        default_layer {
             display-name = "Default Layer";
-
-            // ---------------------------------------------------------------------------------------------------------------------------------
-            // |  ESC  |  Q  |  W  |  E   |  R   |  T   |                                          |  Y   |  U    |  I    |  O   |   P   |   BSP  |
-            // |       |  A  |  S  |  D   |  F   |  G   |                                          |  H   |  J    |  K    |  L   |   ;   |    '   |
-            // |       |  Z  |  X  |  C   |  V   |  B   |   "["   |    `    |  |   CAPS  |   "]"   |  N   |  M    |  ,    |  .   |   /   |        |
-            //                     | PP   |      |      |  SPACE  |   TAB   |  |   RET   |  SPACE  |      |       | MUTE  |
-
+// ---------------------------------------------------------------------------------------------------------------------------------
+// |  ESC  |  Q  |  W  |  E   |  R   |  T   |                                          |  Y   |  U    |  I    |  O   |   P   |   \  |
+// |  TAB  |  A  |  S  |  D   |  F   |  G   |                                          |  H   |  J    |  K    |  L   |   ;   |   '  |
+// | SHIFT |  Z  |  X  |  C   |  V   |  B   | L SHIFT | L SHIFT |  | LAYER 1 | L SHIFT |  N   |  M    |  ,    |  .   |   /   | CTRL |
+//                     | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
             bindings = <
-&kp ESC          &kp Q           &kp W           &kp F             &kp P                     &kp B                                                                 &kp J  &kp L                &kp U              &kp Y            &kp MINUS        &kp BACKSPACE
-&kp TAB          &mt LEFT_GUI A  &mt LEFT_ALT R  &mt LEFT_SHIFT S  &mt (LEFT_CONTROL) LS(T)  &kp G                                                                 &kp M  &mt RIGHT_CONTROL N  &mt RIGHT_SHIFT E  &mt RIGHT_ALT I  &mt RIGHT_GUI O  &kp SQT
-&kp PRINTSCREEN  &kp Z           &kp X           &kp C             &kp D                     &kp V   &kp LEFT_BRACKET  &kp GRAVE  &kp CAPSLOCK  &kp RIGHT_BRACKET  &kp K  &kp H                &kp COMMA          &kp DOT          &kp FSLH         &kp EQUAL
-                                                 &kp C_MUTE        &mo 3                     &tog 3  &kp SPACE         &kp POUND  &kp RET       &kp DELETE         &mo 4  &sl 1                &kp K_PLAY_PAUSE
+    &kp ESC   &kp Q &kp W &kp E &kp R &kp T                                                &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSLH
+    &kp TAB   &kp A &kp S &kp D &kp F &kp G                                                &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
+    &kp LSHFT &kp Z &kp X &kp C &kp V &kp B &kp LSHFT &kp LSHFT        &mo 1    &kp LSHFT  &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RCTRL
+                     &kp LGUI &kp DEL &kp RET &kp SPACE &kp ESC        &kp RET  &kp SPACE  &kp TAB &kp BSPC &kp RALT
             >;
 
-            sensor-bindings =
-                <&scroll_mvt SCRL_DOWN SCRL_UP>,
-                <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
-
-        Nums {
+        function_layer {
+            display-name = "Function Layer";
+// ---------------------------------------------------------------------------------------------------------------------------------
+// |       |      |BT_CLR|BTSEL0|BTSEL1|BTSEL2|                                         |      |      |      |      |      |      |
+// |       |      |      |BTSEL3|BTSEL4|      |                                         |      |      |      |      |      |      |
+// |       |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |
+//                       |      |      |      |      |      |      |      |      |      |      |      |      |
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                                           &kp KP_ASTERISK  &kp N7  &kp N8  &kp N9  &kp KP_PLUS      &trans
-&trans  &trans  &trans  &trans  &trans  &trans                                           &kp KP_DIVIDE    &kp N4  &kp N5  &kp N6  &kp KP_SUBTRACT  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans        &kp NUMBER_0     &kp N1  &kp N2  &kp N3  &kp KP_EQUAL     &trans
-                        &trans  &trans  &trans  &trans  &trans  &kp ENTER  &kp LEFT_GUI  &kp KP_DOT       &trans  &trans
-            >;
-        };
-
-        function {
-            bindings = <
-&kp F1       &kp F2      &kp F3      &kp F4        &kp F5          &kp F6                                                    &trans  &trans  &trans  &trans  &trans  &trans
-&kp F7       &kp F8      &kp F9      &kp F10       &kp F11         &kp F12                                                   &trans  &trans  &trans  &trans  &trans  &trans
-&bootloader  &bt BT_CLR  &bt BT_NXT  &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2    &none       &out OUT_USB  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                                     &none         &bt BT_CLR_ALL  &kp K_PREVIOUS  &kp K_NEXT  &out OUT_BLE  &trans  &trans  &trans  &trans  &trans
-            >;
-        };
-
-        mouse {
-            bindings = <
-&trans  &trans        &kp C_VOL_DN  &kp K_MUTE      &kp C_VOLUME_UP   &trans                                                                    &trans     &trans           &kp PAGE_UP   &kp PAGE_DOWN   &trans           &trans
-&trans  &kp LEFT_GUI  &kp LEFT_ALT  &kp LEFT_SHIFT  &kp LEFT_CONTROL  &trans                                                                    &trans     &mmv MOVE_LEFT   &mmv MOVE_UP  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans
-&trans  &trans        &trans        &trans          &trans            &trans  &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &trans     &trans     &trans     &kp LEFT_ARROW   &kp UP_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans
-                                    &mkp MCLK       &trans            &tog 3  &kp K_COPY            &kp K_PASTE           &mkp MCLK  &mkp LCLK  &mkp RCLK  &kp PRINTSCREEN  &trans
+    &trans &trans &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2              &trans &trans &trans &trans &trans &trans
+    &trans &trans &trans     &bt BT_SEL 3 &bt BT_SEL 4 &trans                    &trans &trans &trans &trans &trans &trans
+    &trans &trans &trans &trans &trans &trans &trans &trans        &trans &trans &trans &trans &trans &trans &trans &trans
+                         &trans &trans &trans &trans &trans        &trans &trans &trans &trans &trans
             >;
 
-            sensor-bindings =
-                <&scroll_mvt SCRL_DOWN SCRL_UP>,
-                <&scroll_mvt SCRL_RIGHT SCRL_LEFT>;
-        };
-
-        syb {
-            bindings = <
-&trans  &kp EXCL       &td_pars  &kp PLUS      &kp PERCENT  &kp AT                                         &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp BACKSLASH  &td1_brk  &kp ASTERISK  &kp DOLLAR   &kp TILDE                                      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp PIPE       &td2_brc  &kp EQUAL     &kp CARET    &kp AMPERSAND  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                                 &trans        &trans       &trans         &trans  &trans  &trans  &trans  &trans  &trans  &trans
-            >;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
     };
 };
