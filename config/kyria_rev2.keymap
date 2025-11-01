@@ -89,7 +89,7 @@
 
             bindings = <
 &kp ESC          &kp Q           &kp W           &kp F             &kp P                     &kp B                                                                 &kp J  &kp L                &kp U              &kp Y            &kp MINUS        &kp BACKSPACE
-&kp TAB          &mt LEFT_GUI A  &mt LEFT_ALT R  &mt LEFT_SHIFT S  &mt (LEFT_CONTROL) LS(T)  &kp G                                                                 &kp M  &mt RIGHT_CONTROL N  &mt RIGHT_SHIFT E  &mt RIGHT_ALT I  &mt RIGHT_GUI O  &kp SQT
+&kp TAB          &mt LEFT_GUI A  &mt LEFT_ALT R  &mt LEFT_SHIFT S  &mt LEFT_CONTROL T        &kp G                                                                 &kp M  &mt RIGHT_CONTROL N  &mt RIGHT_SHIFT E  &mt RIGHT_ALT I  &mt RIGHT_GUI O  &kp SQT
 &kp PRINTSCREEN  &kp Z           &kp X           &kp C             &kp D                     &kp V   &kp LEFT_BRACKET  &kp GRAVE  &kp CAPSLOCK  &kp RIGHT_BRACKET  &kp K  &kp H                &kp COMMA          &kp DOT          &kp FSLH         &kp EQUAL
                                                  &kp C_MUTE        &mo 3                     &tog 3  &kp SPACE         &kp POUND  &kp RET       &kp DELETE         &mo 4  &sl 1                &kp K_PLAY_PAUSE
             >;
