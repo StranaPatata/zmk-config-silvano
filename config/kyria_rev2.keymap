@@ -87,14 +87,14 @@
             //                     | PP   |      |      |  SPACE  |   TAB   |  |   RET   |  SPACE  |      |       | MUTE  |
 
             bindings = <
-&kp ESC          &kp Q           &kp W           &kp F             &kp P               &kp B                                                                 &kp J  &kp L                &kp U              &kp Y            &kp MINUS        &kp BACKSPACE
-&kp TAB          &mt LEFT_GUI A  &mt LEFT_ALT R  &mt LEFT_SHIFT S  &mt LEFT_CONTROL T  &kp G                                                                 &kp M  &mt RIGHT_CONTROL N  &mt RIGHT_SHIFT E  &mt RIGHT_ALT I  &mt RIGHT_GUI O  &kp SQT
-&kp PRINTSCREEN  &kp Z           &kp X           &kp C             &kp D               &kp V   &kp LEFT_BRACKET  &kp GRAVE  &kp CAPSLOCK  &kp RIGHT_BRACKET  &kp K  &kp H                &kp COMMA          &kp DOT          &kp FSLH         &kp EQUAL
-                                                 &kp C_MUTE        &mo 1               &tog 3  &kp SPACE         &kp POUND  &kp RET       &kp DELETE         &mo 4  &mo 2                &kp K_PLAY_PAUSE
+&kp ESC          &kp B           &kp L           &kp D               &kp C             &kp V                                                               &kp Z  &kp Y              &kp O                &kp U            &kp MINUS        &kp CAPSLOCK
+&kp TAB          &mt LEFT_GUI N  &mt LEFT_ALT R  &mt LEFT_CONTROL T  &mt LEFT_SHIFT S  &kp G                                                               &kp P  &mt RIGHT_SHIFT H  &mt RIGHT_CONTROL A  &mt RIGHT_ALT E  &mt RIGHT_GUI I  &kp SQT
+&kp PRINTSCREEN  &kp Q           &kp Z           &kp M               &kp W             &kp J   &kp LEFT_BRACKET  &kp GRAVE  &kp DELETE  &kp RIGHT_BRACKET  &kp K  &kp F              &td_comma            &td_dot          &kp FSLH         &kp EQUAL
+                                                 &kp C_MUTE          &mo 1             &tog 3  &kp SPACE         &kp HASH   &kp RET     &kp BACKSPACE      &mo 4  &mo 2              &kp K_PLAY_PAUSE
             >;
 
             sensor-bindings =
-                <&scroll_mvt SCRL_DOWN SCRL_UP>,
+                <&inc_dec_kp K_SCROLL_DOWN K_SCROLL_UP>,
                 <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
 
@@ -109,10 +109,10 @@
 
         function {
             bindings = <
-&kp F1       &kp F2      &kp F3      &kp F4        &kp F5          &kp F6                                                    &trans  &trans  &trans  &trans  &trans  &trans
-&kp F7       &kp F8      &kp F9      &kp F10       &kp F11         &kp F12                                                   &trans  &trans  &trans  &trans  &trans  &trans
-&bootloader  &bt BT_CLR  &bt BT_NXT  &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2    &none       &out OUT_USB  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                                     &none         &bt BT_CLR_ALL  &kp K_PREVIOUS  &kp K_NEXT  &out OUT_BLE  &trans  &trans  &trans  &trans  &trans
+&kp F1       &kp F2      &kp F3      &kp F4    &kp F5          &kp F6                                                    &trans  &trans  &trans  &trans  &trans  &trans
+&kp F7       &kp F8      &kp F9      &kp F10   &kp F11         &kp F12                                                   &trans  &trans  &trans  &trans  &trans  &trans
+&bootloader  &bt BT_CLR  &bt BT_NXT  &bt0_cmd  &bt1_cmd        &bt2_cmd        &none       &out OUT_USB  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                                     &none     &bt BT_CLR_ALL  &kp K_PREVIOUS  &kp K_NEXT  &out OUT_BLE  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
