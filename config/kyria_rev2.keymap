@@ -84,7 +84,7 @@
             compatible = "zmk,behavior-sensor-rotate";
             label = "ALT_SCROLL";
             #sensor-binding-cells = <0>;
-            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+            bindings = <&msc REL_WHEEL>, <&msc REL_HWHEEL>;
         };
     };
 
