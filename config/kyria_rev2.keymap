@@ -22,7 +22,7 @@
         };
 
         inc_dec_msc: inc_dec_msc {
-            compatible = "zmk,behavior-sensor-rotate";
+            compatible = "zmk,behavior-sensor-rotate-var";
             label = "INC_DEC_MSC";
             #sensor-binding-cells = <2>;
             bindings = <&msc>, <&msc>;
