@@ -21,6 +21,13 @@
             bindings = <&msc>, <&msc>;
         };
 
+        inc_dec_msc: inc_dec_msc {
+            compatible = "zmk,behavior-sensor-rotate";
+            label = "INC_DEC_MSC";
+            #sensor-binding-cells = <2>;
+            bindings = <&msc>, <&msc>;
+        };
+
         td_sx_pars: parenthesis {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
