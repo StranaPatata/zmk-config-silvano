@@ -101,7 +101,7 @@
             >;
 
             sensor-bindings =
-                <&scroll_mvt SCRL_DOWN SCRL_UP>,
+                <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>,
                 <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
 
