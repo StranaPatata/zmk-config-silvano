@@ -97,11 +97,11 @@
 &kp ESC          &kp B           &kp L           &kp D               &kp C             &kp V                                                      &kp Z  &kp Y              &kp O                &kp U            &kp MINUS        &kp CAPSLOCK
 &kp TAB          &mt LEFT_GUI N  &mt LEFT_ALT R  &mt LEFT_CONTROL T  &mt LEFT_SHIFT S  &kp G                                                      &kp P  &mt RIGHT_SHIFT H  &mt RIGHT_CONTROL A  &mt RIGHT_ALT E  &mt RIGHT_GUI I  &kp SQT
 &kp PRINTSCREEN  &kp Q           &kp Z           &kp M               &kp W             &kp J   &td_sx_pars  &kp GRAVE  &kp DELETE  &td_dx_pars    &kp K  &kp F              &td_comma            &td_dot          &kp FSLH         &kp EQUAL
-                                                 &kp PRINTSCREEN     &mo 1             &tog 3  &kp SPACE    &kp HASH   &kp RET     &kp BACKSPACE  &mo 4  &mo 2              &kp C_PLAY_PAUSE
+                                                 &kp D     &mo 1             &tog 3  &kp SPACE    &kp HASH   &kp RET     &kp BACKSPACE  &mo 4  &mo 2              &kp D
             >;
 
             sensor-bindings =
-                <&inc_dec_kp C_AC_SCROLL_UP C_AC_SCROLL_DOWN>,
+                <&scroll_mvt SCRL_DOWN SCRL_UP>,
                 <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
 
