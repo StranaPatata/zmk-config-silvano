@@ -80,12 +80,6 @@
             bindings = <&bt BT_SEL 2>, <&bt BT_DISC 2>;
         };
 
-        alt_scroll: alt_scroll {
-            compatible = "zmk,behavior-sensor-rotate";
-            label = "ALT_SCROLL";
-            #sensor-binding-cells = <0>;
-            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
-        };
     };
 
     keymap {
@@ -138,7 +132,7 @@
                                     &mkp MCLK       &trans            &tog 3  &kp K_COPY            &kp K_PASTE           &mkp MCLK  &mkp LCLK  &mkp RCLK  &kp PRINTSCREEN  &trans
             >;
 
-            sensor-bindings = <&alt_scroll>, <&scroll_mvt SCRL_RIGHT SCRL_LEFT>;
+            sensor-bindings = <&inc_dec_msc SCRL_UP SCRL_DOWN>, <&scroll_mvt SCRL_RIGHT SCRL_LEFT>;
         };
 
         syb {
