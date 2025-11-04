@@ -17,7 +17,7 @@
         scroll_mvt: scroll_mvt {
             compatible = "zmk,behavior-sensor-rotate";
             label = "SCROLL_MVT";
-            #sensor-binding-cells = <0>;
+            #sensor-binding-cells = <2>;
             bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
         };
 
