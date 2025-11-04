@@ -15,10 +15,10 @@
 / {
     behaviors {
         scroll_mvt: scroll_mvt {
-            compatible = "zmk,behavior-sensor-rotate";
+            compatible = "zmk,behavior-sensor-rotate-var";
             label = "SCROLL_MVT";
             #sensor-binding-cells = <2>;
-            bindings =  <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+            bindings = <&msc>, <&msc>;
         };
 
         td_sx_pars: parenthesis {
@@ -79,6 +79,13 @@
             #binding-cells = <0>;
             bindings = <&bt BT_SEL 2>, <&bt BT_DISC 2>;
         };
+
+        alt_scroll: alt_scroll {
+            compatible = "zmk,behavior-sensor-rotate";
+            label = "ALT_SCROLL";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+        };
     };
 
     keymap {
@@ -101,7 +108,7 @@
             >;
 
             sensor-bindings =
-                <&scroll_mvt SCRL_DOWN SCRL_UP>,  // Mouse scroll for left encoder
+                <&alt_scroll>,
                 <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
 
