@@ -24,6 +24,13 @@
             bindings = <&msc>, <&msc>;
         };
 
+        mouse_scroll: sensor_scroll {
+        	compatible = "zmk,behavior-sensor-rotate-var";
+        	#sensor-binding-cells = <2>;
+            bindings = <&msc>, <&msc>;
+            tap-ms = <20>;
+		};
+
         inc_dec_msc: inc_dec_msc {
             compatible = "zmk,behavior-sensor-rotate-var";
             label = "INC_DEC_MSC";
@@ -112,7 +119,7 @@
             >;
 
             sensor-bindings =
-                <&inc_dec_msc SCRL_UP SCRL_DOWN>,
+                <&mouse_scroll SCRL_UP SCRL_DOWN>,
                 <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
 
