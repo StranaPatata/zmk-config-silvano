@@ -15,10 +15,10 @@
 / {
     behaviors {
         scroll_mvt: scroll_mvt {
-            compatible = "zmk,behavior-sensor-rotate-var";
+            compatible = "zmk,behavior-sensor-rotate";
             label = "SCROLL_MVT";
-            #sensor-binding-cells = <2>;
-            bindings = <&msc>, <&msc>;
+            #sensor-binding-cells = <0>;
+            bindings =  <&msc SCRL_UP>, <&msc SCRL_DOWN>;
         };
 
         td_sx_pars: parenthesis {
@@ -101,7 +101,7 @@
             >;
 
             sensor-bindings =
-                <&inc_dec_kp C_AC_SCROLL_UP C_AC_SCROLL_DOWN>,
+                <&scroll_mvt SCRL_DOWN SCRL_UP>,  // Mouse scroll for left encoder
                 <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
 
