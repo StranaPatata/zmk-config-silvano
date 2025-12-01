@@ -1,6 +1,7 @@
 // Define scroll speed BEFORE including pointing.h
 
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 600
+// #define ZMK_POINTING_DEFAULT_MOVE_VAL 600
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1100
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 100
 
 #include <behaviors.dtsi>
@@ -85,6 +86,13 @@
             #binding-cells = <0>;
             bindings = <&bt BT_SEL 2>, <&bt BT_DISC 2>;
         };
+
+        td_prntscr: td_prntscr {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_PRNTSCR";
+            #binding-cells = <0>;
+            bindings = <&none>, <&kp PRINTSCREEN>;
+        };
     };
 
     keymap {
@@ -131,10 +139,10 @@
 
         mouse {
             bindings = <
-&trans  &none         &none           &kp C_VOLUME_DOWN  &kp C_VOLUME_UP   &kp K_MUTE                                                           &none      &none            &kp PAGE_UP   &kp PAGE_DOWN   &none            &none
-&none   &kp LEFT_GUI  &kp LEFT_ALT    &kp LEFT_SHIFT     &kp LEFT_CONTROL  &none                                                                &none      &mmv MOVE_LEFT   &mmv MOVE_UP  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none
-&none   &none         &kp C_PREVIOUS  &kp C_PLAY_PAUSE   &kp C_NEXT        &kp K_COPY  &kp K_PASTE  &kp C_BRIGHTNESS_INC  &none      &mkp MB5   &mkp MB4   &kp LEFT_ARROW   &kp UP_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &none
-                                      &none              &mo 1             &kp SPACE   &tog 3       &kp C_BRI_DEC         &mkp MCLK  &mkp RCLK  &mkp LCLK  &kp PRINTSCREEN  &none
+&trans  &none         &none           &kp C_VOLUME_DOWN  &kp C_VOLUME_UP   &kp K_MUTE                                                           &none      &none           &kp PAGE_UP   &kp PAGE_DOWN   &none            &none
+&none   &kp LEFT_GUI  &kp LEFT_ALT    &kp LEFT_SHIFT     &kp LEFT_CONTROL  &none                                                                &none      &mmv MOVE_LEFT  &mmv MOVE_UP  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none
+&none   &none         &kp C_PREVIOUS  &kp C_PLAY_PAUSE   &kp C_NEXT        &kp K_COPY  &kp K_PASTE  &kp C_BRIGHTNESS_INC  &none      &mkp MB5   &mkp MB4   &kp LEFT_ARROW  &kp UP_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &none
+                                      &none              &mo 1             &kp SPACE   &tog 3       &kp C_BRI_DEC         &mkp MCLK  &mkp RCLK  &mkp LCLK  &td_prntscr     &none
             >;
 
             sensor-bindings =
@@ -149,6 +157,10 @@
 &trans  &kp PIPE       &none        &kp EQUAL     &kp CARET    &kp AMPERSAND  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
                                     &trans        &trans       &trans         &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
+
+            sensor-bindings =
+                <&inc_dec_kp C_BRIGHTNESS_INC C_BRIGHTNESS_DEC>,
+                <&mouse_scroll SCRL_RIGHT SCRL_LEFT>;
         };
     };
 };
