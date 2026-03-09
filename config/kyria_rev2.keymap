@@ -31,7 +31,7 @@
         td_sx_pars: parenthesis {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <100>;
+            tapping-term-ms = <200>;
             bindings =
                 <&kp LEFT_PARENTHESIS>,
                 <&kp LEFT_BRACKET>,
@@ -41,7 +41,7 @@
         td_dx_pars: dxpar {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <100>;
+            tapping-term-ms = <200>;
             bindings =
                 <&kp RIGHT_PARENTHESIS>,
                 <&kp RIGHT_BRACKET>,
@@ -54,7 +54,7 @@
             #binding-cells = <0>;
             bindings = <&kp COMMA>, <&kp SEMI>;
 
-            tapping-term-ms = <100>;
+            tapping-term-ms = <200>;
         };
 
         td_dot: period {
@@ -63,7 +63,7 @@
             #binding-cells = <0>;
             bindings = <&kp DOT>, <&kp COLON>;
 
-            tapping-term-ms = <100>;
+            tapping-term-ms = <200>;
         };
 
         // select which bt profile, hold to disconnect if inactive
@@ -100,7 +100,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "QUOTE_DOUBLEQ";
             #binding-cells = <0>;
-            tapping-term-ms = <100>;
+            tapping-term-ms = <200>;
             bindings = <&kp SINGLE_QUOTE>, <&kp DOUBLE_QUOTES>;
         };
     };
